@@ -14,6 +14,22 @@ function toggleIsPlaying() {
   }
 }
 
+// avocado moves around the board:
+
+// 1. give the avocado a random index or place on the board
+setInterval(placeAvocado, 1000);
+
+function placeAvocado() {
+  if (isPlaying) {
+    avocado = randomIndex();
+    renderState();
+    }
+}
+// give the avocado a number btwn 0-8 (inclusive)
+function randomIndex() {
+  return  Math.floor(Math.random() * 9);
+}
+
 /*  HELPERS */
 
 function renderState() {
