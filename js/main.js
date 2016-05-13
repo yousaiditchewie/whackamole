@@ -6,8 +6,12 @@ var guac = [];
 
 /* BEHAVIOR */
 
-function start() {
-  isPlaying = true;
+function toggleIsPlaying() {
+  if (isPlaying){
+    isPlaying = false;
+  } else {
+    isPlaying = true;
+  }
 }
 
 /*  HELPERS */
@@ -58,10 +62,24 @@ if (avocado === 0) {
   }
 }
 
+/* RENDER */
+
+function render() {
+  if (isPlaying) {
+    $("button").text("Pause Game");
+  } else {
+    $("button").text("Start Game");
+  }
+};
 
 /* INTERACTION */
 
-$("button").on("click", start);
+$("button").on("click", function() {
+  toggleIsPlaying();
+  render();
+
+});
+
 
 
 
